@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carta Balbarani</title>
+<style>
+body{margin:0;background:#111;font-family:Arial,sans-serif}
+header{background:linear-gradient(#111,#1a1a1a);padding:14px;text-align:center}
+header img{width:100px;border-radius:50%;background:#c7e6dc;padding:6px;cursor:pointer}
+nav{margin-top:10px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+nav button{border:1px solid #c7e6dc;background:transparent;color:#c7e6dc;border-radius:18px;padding:6px 14px;cursor:pointer}
+nav button.active{background:#c7e6dc;color:#000}
+.page{max-width:900px;margin:28px auto;padding:0 14px;display:none}
+.page.active{display:block}
+.page img{width:100%;border-radius:18px;margin-bottom:22px;box-shadow:0 8px 26px rgba(0,0,0,.45)}
+</style>
+<script>
+function scrollTopSmooth(){window.scrollTo({top:0,behavior:'smooth'});}
+function showAll(){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.getElementById('inicio').classList.add('active');
+ document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+ scrollTopSmooth();
+}
+function show(id,btn){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+ btn.classList.add('active');
+ scrollTopSmooth();
+}
+window.onload=showAll;
+</script>
+</head>
+<body>
+
+<header>
+<img src="img/logo.avif" onclick="showAll()">
+<nav>
+<button onclick="show('cafeteria',this)">Cafetería</button>
+<button onclick="show('panaderia',this)">Panadería</button>
+<button onclick="show('sandwiches',this)">Sandwiches</button>
+<button onclick="show('pizzas',this)">Pizzas</button>
+<button onclick="show('empanadas',this)">Empanadas</button>
+<button onclick="show('pastas',this)">Pastas</button>
+<button onclick="show('platos',this)">Platos</button>
+<button onclick="show('postres',this)">Postres</button>
+<button onclick="show('bebidas',this)">Bebidas</button>
+</nav>
+</header>
+
+<div id="inicio" class="page active">
+<img src="img/hoja1.jpg">
+<img src="img/hoja2.jpg">
+<img src="img/hoja3.jpg">
+<img src="img/hoja4.jpg">
+<img src="img/hoja5.jpg">
+<img src="img/hoja6.jpg">
+<img src="img/hoja7.jpg">
+<img src="img/hoja8.jpg">
+<img src="img/hoja9.jpg">
+<img src="img/hoja10.jpg">
+<img src="img/hoja11.jpg">
+<img src="img/hoja12.jpg">
+</div>
+
+<div id="cafeteria" class="page"><img src="img/hoja3.jpg"></div>
+<div id="panaderia" class="page"><img src="img/hoja4.jpg"></div>
+<div id="sandwiches" class="page"><img src="img/hoja5.jpg"></div>
+<div id="pizzas" class="page"><img src="img/hoja6.jpg"></div>
+<div id="empanadas" class="page"><img src="img/hoja7.jpg"></div>
+<div id="pastas" class="page"><img src="img/hoja8.jpg"></div>
+<div id="platos" class="page"><img src="img/hoja9.jpg"></div>
+
+<!-- POSTRES: SOLO POSTRES -->
+<div id="postres" class="page">
+<img src="img/hoja10.jpg">
+</div>
+
+<!-- BEBIDAS: SIN + CON ALCOHOL -->
+<div id="bebidas" class="page">
+<img src="img/hoja11.jpg">
+<img src="img/hoja12.jpg">
+</div>
+
+</body>
+</html>
